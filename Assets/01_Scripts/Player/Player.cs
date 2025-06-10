@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     [field:SerializeField] public PlayerAnimationData AnimationData { get; private set; }
     
     public Animator Animator  { get; private set; }
-    public ForceReceiver ForceReceiver { get; private set; }
+
     public Health health { get; private set; }
     private PlayerStateMachine stateMachine;
     
@@ -22,7 +22,6 @@ public class Player : MonoBehaviour
         AnimationData.Initialize();
         Agent = GetComponent<NavMeshAgent>();
         Animator = GetComponentInChildren<Animator>();
-        ForceReceiver = GetComponent<ForceReceiver>();
         health = GetComponent<Health>();
 
         stateMachine = new PlayerStateMachine(this);
@@ -31,6 +30,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         health.OnDie += OnDie;
+        stateMachine.ChangeState(stateMachine.IdleState);
     }
 
     private void Update()

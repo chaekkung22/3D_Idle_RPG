@@ -10,8 +10,8 @@ public class PlayerGroundState : PlayerBaseState
 
     public override void Enter()
     {
-        stateMachine.Player.Agent.isStopped = true;
         base.Enter();
+        stateMachine.Player.Agent.isStopped = true;
         StartAnimation(stateMachine.Player.AnimationData.GroundParameterHash);
     }
 

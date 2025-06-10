@@ -12,8 +12,8 @@ public class PlayerIdleState : PlayerGroundState
     
     public override void Enter()
     {
-        stateMachine.Player.Agent.isStopped = true;
         base.Enter();
+        stateMachine.Player.Agent.isStopped = true;
         StartAnimation(stateMachine.Player.AnimationData.IdleParameterHash);
         searchCooldownTimer = stateMachine.Player.Data.DetectData.SearchCooldownTime;
     }
@@ -28,9 +28,10 @@ public class PlayerIdleState : PlayerGroundState
     {
         base.Update();
 
-        if (IsInChasingRange())
+        if (detector.HasAnyTarget())
         {
             stateMachine.ChangeState(stateMachine.ChaseState);
+            Debug.Log("타겟 찾아서 쫓아가기 시작함");
             return;
         }
         
@@ -39,6 +40,8 @@ public class PlayerIdleState : PlayerGroundState
         if (searchCooldownTimer <= 0)
         {
             stateMachine.ChangeState(stateMachine.DetectState);
+            Debug.Log("2초지나서 DetectState로 감");
+            return;
         }
     }
 }

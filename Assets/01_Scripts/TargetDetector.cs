@@ -34,8 +34,11 @@ public class TargetDetector
         float closetDistanceSqr = float.MaxValue;
         Health closest = null;
 
-        foreach (Collider hit in hits)
+        for (int i = 0; i < hits.Length; i++)
         {
+            Collider hit = hits[i];
+            
+            if(hit == null) continue;
             Health health = hit.GetComponent<Health>();
             if(health == null || health.IsDie) continue;
             

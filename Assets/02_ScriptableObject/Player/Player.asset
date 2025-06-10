@@ -46,6 +46,6 @@ MonoBehaviour:
       <Dealing_Start_TransitionTime>k__BackingField: 0
       <Dealing_End_TransitionTime>k__BackingField: 0
   <DetectData>k__BackingField:
-    <SearchDistance>k__BackingField: 4
+    <SearchDistance>k__BackingField: 10
     <SearchCooldownTime>k__BackingField: 2
     <TargetChasingRange>k__BackingField: 3
