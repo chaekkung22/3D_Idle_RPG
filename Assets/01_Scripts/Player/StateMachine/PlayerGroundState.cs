@@ -10,7 +10,7 @@ public class PlayerGroundState : PlayerBaseState
 
     public override void Enter()
     {
-        stateMachine.MovementSpeedModifier = 0f;
+        stateMachine.Player.Agent.isStopped = true;
         base.Enter();
         StartAnimation(stateMachine.Player.AnimationData.GroundParameterHash);
     }
@@ -26,13 +26,13 @@ public class PlayerGroundState : PlayerBaseState
     {
         base.Update();
 
-        if (!IsInChasingRange())
+        if (IsInChasingRange())
         {
-            stateMachine.ChangeState(stateMachine.IdleState);
+            stateMachine.ChangeState(stateMachine.ChaseState);
         }
-        else if (IsInChasingRange())
+        else
         {
-            
+            stateMachine.ChangeState(stateMachine.DetectState);
         }
             
     }

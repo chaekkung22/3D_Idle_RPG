@@ -8,6 +8,8 @@ public class PlayerChaseState : PlayerGroundState
 
     public override void Enter()
     {
+        stateMachine.Player.Agent.isStopped = false;
+        SetAgentSpeed(stateMachine.Player.Data.GroundData.ChaseSpeedModifier);
         base.Enter();
         StartAnimation(stateMachine.Player.AnimationData.ChaseParameterHash);
     }

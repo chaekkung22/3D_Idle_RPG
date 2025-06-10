@@ -6,8 +6,6 @@ using UnityEngine;
 public class PlayerStateMachine : StateMachine
 {
     public Player Player { get; }
-    public float MovementSpeed { get; private set; }
-    public float MovementSpeedModifier { get; set; } = 1f;
     public bool IsAttacking { get; set; }
     public int ComboIndex { get; set; }
     
@@ -16,7 +14,7 @@ public class PlayerStateMachine : StateMachine
     public PlayerChaseState ChaseState { get; private set; }
     public PlayerComboAttackState ComboAttackState  { get; private set; }
     
-    public Health Target { get; private set; }
+    public Health Target { get; set; }
 
     public PlayerStateMachine(Player player)
     {
@@ -26,7 +24,5 @@ public class PlayerStateMachine : StateMachine
         DetectState = new PlayerDetectState(this);
         ChaseState = new PlayerChaseState(this);
         ComboAttackState = new PlayerComboAttackState(this);
-
-        MovementSpeed = player.Data.GroundData.BaseSpeed;
     }
 }

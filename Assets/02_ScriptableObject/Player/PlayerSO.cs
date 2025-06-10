@@ -7,10 +7,10 @@ using UnityEngine;
 public class PlayerGroundData
 {
     [field:SerializeField] [field: Range(0f, 25f)] public float BaseSpeed { get; private set; } = 5f;
-    [field:SerializeField] [field: Range(0f, 25f)] public float BaseRotationDamping { get; private set; } = 1f;
     
     [field:Header("RunData")]
-    [field:SerializeField] [field: Range(0f, 2f)] public float RunSpeedModifier { get; private set; } = 1f;
+    [field:SerializeField] [field: Range(0f, 2f)] public float DetectSpeedModifier { get; private set; } = 1f;
+    [field:SerializeField] [field: Range(0f, 2f)] public float ChaseSpeedModifier { get; private set; } = 1.2f;
 }
 
 [Serializable]
@@ -35,7 +35,13 @@ public class AttackInfoData
     [field:SerializeField] [field: Range(0f, 1f)] public float Dealing_End_TransitionTime { get; private set; }
 }
 
-
+[Serializable]
+public class PlayerDetectData
+{
+    [field: SerializeField] public float SearchDistance { get; private set; } = 4f;
+    [field: SerializeField] public float SearchCooldownTime { get; private set; } = 2f;
+    [field: SerializeField] public float TargetChasingRange { get; private set; } = 3f;
+}
     
 
 
@@ -44,6 +50,6 @@ public class PlayerSO : ScriptableObject
 {
     [field: SerializeField] public PlayerGroundData GroundData { get; private set; }
     [field :SerializeField] public PlayerAttackData AttackData  { get; private set; }
-    [field: SerializeField] public float TargetChasingRange { get; private set; } = 10f;
+    [field: SerializeField] public PlayerDetectData DetectData { get; private set; }
 }
 

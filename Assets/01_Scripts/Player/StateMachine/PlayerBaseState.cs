@@ -48,12 +48,17 @@ public class PlayerBaseState : IState
     {
         stateMachine.Player.Animator.SetBool(animatorHash, false);
     }
+    
+    protected void SetAgentSpeed(float modifier)
+    {
+        stateMachine.Player.Agent.speed = stateMachine.Player.Data.GroundData.BaseSpeed * modifier;
+    }
 
     protected bool IsInChasingRange()
     {
         if (stateMachine.Target.IsDie) return false;
         float targetDistanceSqr = (stateMachine.Target.transform.position - stateMachine.Player.transform.position).sqrMagnitude;
-        return targetDistanceSqr <= stateMachine.Player.Data.TargetChasingRange;
+        return targetDistanceSqr <= stateMachine.Player.Data.DetectData.TargetChasingRange;
     }
     
 }

@@ -8,7 +8,7 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void Enter()
     {
-        stateMachine.MovementSpeedModifier = 0f;
+        stateMachine.Player.Agent.isStopped = true;
         base.Enter();
         StartAnimation(stateMachine.Player.AnimationData.AttackParameterHash);
     }
