@@ -36,13 +36,14 @@ public class AttackInfoData
 }
 
 
+    
+
+
 [CreateAssetMenu(fileName = "Player", menuName = "Characters/Player")]
 public class PlayerSO : ScriptableObject
 {
     [field: SerializeField] public PlayerGroundData GroundData { get; private set; }
     [field :SerializeField] public PlayerAttackData AttackData  { get; private set; }
     [field: SerializeField] public float TargetChasingRange { get; private set; } = 10f;
-  
-
 }
 
