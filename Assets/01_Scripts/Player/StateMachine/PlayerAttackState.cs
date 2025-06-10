@@ -18,10 +18,4 @@ public class PlayerAttackState : PlayerBaseState
         base.Exit();
         StopAnimation(stateMachine.Player.AnimationData.AttackParameterHash);
     }
-
-    public override void Update()
-    {
-        base.Update();
-        stateMachine.ChangeState();
-    }
 }
