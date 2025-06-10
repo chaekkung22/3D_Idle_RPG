@@ -13,30 +13,30 @@ public class PlayerBaseState : IState
         groundData = stateMachine.Player.Data.GroundData;
     }
     
-    public void Enter()
+    public virtual void Enter()
     {
-        throw new System.NotImplementedException();
+
     }
 
-    public void Exit()
+    public virtual void Exit()
     {
-        throw new System.NotImplementedException();
+
     }
     
 
-    public void HandleInput()
+    public virtual void HandleInput()
     {
-        throw new System.NotImplementedException();
+
     }
 
-    public void Update()
+    public virtual void Update()
     {
-        throw new System.NotImplementedException();
+
     }
 
-    public void PhysicsUpdate()
+    public virtual void PhysicsUpdate()
     {
-        throw new System.NotImplementedException();
+
     }
 
     protected void StartAnimation(int animatorHash)
@@ -52,8 +52,8 @@ public class PlayerBaseState : IState
     protected bool IsInChasingRange()
     {
         if (stateMachine.Target.IsDie) return false;
-        float playerDistanceSqr = (stateMachine.Target.transform.position - stateMachine.Player.transform.position).sqrMagnitude;
-        return playerDistanceSqr <= stateMachine.Player.Data.TargetChasingRange;
+        float targetDistanceSqr = (stateMachine.Target.transform.position - stateMachine.Player.transform.position).sqrMagnitude;
+        return targetDistanceSqr <= stateMachine.Player.Data.TargetChasingRange;
     }
     
 }
