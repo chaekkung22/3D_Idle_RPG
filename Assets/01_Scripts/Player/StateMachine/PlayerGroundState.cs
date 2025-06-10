@@ -20,22 +20,6 @@ public class PlayerGroundState : PlayerBaseState
         base.Exit();
         StopAnimation(stateMachine.Player.AnimationData.GroundParameterHash);
     }
-
-
-    public override void Update()
-    {
-        base.Update();
-
-        if (IsInChasingRange())
-        {
-            stateMachine.ChangeState(stateMachine.ChaseState);
-        }
-        else
-        {
-            stateMachine.ChangeState(stateMachine.DetectState);
-        }
-            
-    }
     
     
 }
