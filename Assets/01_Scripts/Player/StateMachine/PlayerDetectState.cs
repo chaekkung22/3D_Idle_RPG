@@ -8,7 +8,7 @@ public class PlayerDetectState : PlayerGroundState
     }
 
     private float timer = 30f;
-    private float refreshTimer = 1f;
+
     private Transform player;
 
     public override void Enter()
@@ -57,9 +57,12 @@ public class PlayerDetectState : PlayerGroundState
 
     private Vector3 GetDetectLocation()
     {
+        float randomAngle = Random.Range(-60f, 60f);
+        Vector3 forward = player.forward;
+        Vector3 randomDir = Quaternion.Euler(0f, randomAngle, 0f) * forward;
         float maxDistance = stateMachine.Player.Data.DetectData.SearchDistance;
         NavMeshHit hit;
-        NavMesh.SamplePosition(player.position + player.forward * maxDistance, out hit, maxDistance, 
+        NavMesh.SamplePosition(player.position + randomDir.normalized * maxDistance, out hit, maxDistance, 
             NavMesh.AllAreas);
         return hit.position;
     }

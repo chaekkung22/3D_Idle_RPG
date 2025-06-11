@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 {
     [field: SerializeField] public PlayerSO Data { get; private set; }
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
+    [field: SerializeField] public Weapon Weapon { get; private set; }
+    
     
     [field:Header("Animations")]
     [field:SerializeField] public PlayerAnimationData AnimationData { get; private set; }
