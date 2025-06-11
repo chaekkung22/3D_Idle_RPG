@@ -1131,6 +1131,7 @@ GameObject:
   - component: {fileID: 6243724166366424749}
   - component: {fileID: 2843864152176087716}
   - component: {fileID: 1624981112625572191}
+  - component: {fileID: -6395049004240528249}
   m_Layer: 8
   m_Name: Enemy_Fox
   m_TagString: Enemy
@@ -1201,6 +1202,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f3261637ee14924bebc2f45184ff3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &-6395049004240528249
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7165320077308729330}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &7286030545828933305
 GameObject:
   m_ObjectHideFlags: 0
